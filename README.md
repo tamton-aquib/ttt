@@ -1,14 +1,14 @@
 # **Typing speed.**
 
 ### Description:
-#### A python program made on tkinter to calculate your typing speed.
+A python program made on tkinter to calculate your typing speed. The styling is trash, so contributions are welcome. 🤗
 
 ___
 ### Requirements
 * Python3+
 * Tkinter
 
-### Screesnhots
+### Screenshots
 ![Imgur](https://i.imgur.com/RAcPivF.png)
 ![Imgur](https://i.imgur.com/iwYBmK0.png)
 
