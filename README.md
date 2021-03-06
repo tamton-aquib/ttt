@@ -18,5 +18,6 @@ ___
 python3 typing-speed.py
 ```
 
+___
 ### Config file
 * number_of_words (default: 10)
