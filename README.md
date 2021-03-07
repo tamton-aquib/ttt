@@ -17,6 +17,6 @@ python3 typing-speed.py
 
 ___
 ### Config file
-* `total_words_to_appear ` (default: 10)
-* `max_length_of_a_word` (default: 8)
-* `time_allowed` (default: 30 seconds)
+* `total_words_to_appear`  (default: 10)
+* `max_length_of_a_word`  (default: 8)
+* `time_allowed`  (default: 30 seconds)
