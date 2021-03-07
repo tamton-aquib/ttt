@@ -16,6 +16,10 @@ python3 typing-speed.py
 ```
 
 ___
+### Screenshot
+![Yeah I'm bad at typing.](https://i.imgur.com/z8FP7T9.png)
+
+___
 ### Config file
 * `total_words_to_appear`  (default: 10)
 * `max_length_of_a_word`  (default: 8)
