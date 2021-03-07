@@ -12,7 +12,7 @@ ___
 ___
 ### Usage:
 ```sh
-python3 typing-speed.py
+python3 typing_speed.py
 ```
 
 ___
