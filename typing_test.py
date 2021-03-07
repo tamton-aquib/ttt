@@ -86,7 +86,8 @@ entry.focus()
 def display_score():
     global correct_words_count
     score = (correct_words_count / int(MainStart)) * 60
-    Label(root, text=f"You score is: {score}", **score_configs).pack(pady=20)
+    Label(root, text=f"You score is: {score} WPM",
+          **score_configs).pack(pady=20)
     print(f"Your score is: {score}")
     timer_label.config(text="0")
 
