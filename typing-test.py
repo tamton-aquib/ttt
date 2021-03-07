@@ -32,7 +32,7 @@ entry_fg = '#000000'
 entry_bg = '#7fe7dc'
 
 label_configs = {
-    "height": "10",
+    "height": "8",
     "font": "Sans 16",
     "bg": label_bg,
     "fg": label_fg,
@@ -56,7 +56,7 @@ timer_label_configs = {
 score_configs = {
     "bg": label_bg,
     "fg": label_fg,
-    "font": "Sans 16"
+    "font": "Sans 22"
 }
 
 # ========== WIDGETS ==========
@@ -69,7 +69,7 @@ screen_height = root.winfo_screenheight()
 x_cordinate = int((screen_width/2) - (800/2))
 y_cordinate = int((screen_height/2) - (500/2))
 root.geometry(f"800x500+{x_cordinate}+{y_cordinate}")
-root.title("Noice")
+root.title("Typing speed test.")
 root.configure(bg=label_bg)
 
 label = Label(root, text=" ".join(words), **label_configs)
