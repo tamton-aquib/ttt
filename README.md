@@ -1,4 +1,4 @@
-# **Typing speed.**
+# **Typing Test Tkinter.**
 
 ### Description:
 A python program made on tkinter to calculate your typing speed.
