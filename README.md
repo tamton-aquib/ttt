@@ -2,7 +2,7 @@
 
 ### Description:
 A python program made on tkinter to calculate your typing speed.
-The styling is trash, so contributions are welcome. 🤗
+The styling is trash btw.
 
 ___
 ### Requirements
