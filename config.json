@@ -1,5 +1,5 @@
 {
     "total_words_to_appear": 20,
     "max_length_of_a_word": 8,
-    "time_allowed": "30"
+    "time_allowed": 30
 }

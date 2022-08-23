@@ -2,10 +2,8 @@
 from tkinter import Tk, Label, Entry, END
 import sys, random, json
 
-from words import words as list_of_words
 import styling
 
-# Names and Variables
 with open('config.json') as config_file:
     data = json.load(config_file)
 
@@ -13,71 +11,66 @@ max_length_of_a_word = data['max_length_of_a_word']
 total_words_to_appear = data['total_words_to_appear']
 MainStart = data['time_allowed']
 
-words = []
-while len(words) < total_words_to_appear:
-    random_word = random.choice(list_of_words)
-    if len(random_word) <= max_length_of_a_word:
-        words.append(random_word)
+class Ttt:
+    def __init__(self) -> None:
+        self.start = data['time_allowed']
+        self.correct_words_count = 0
+        self.root = Tk()
 
-start = MainStart
-correct_words_count = 0
+        screen_width, screen_height = self.root.winfo_screenwidth(), self.root.winfo_screenheight()
+        x_cordinate = int((screen_width/2) - (800/2))
+        y_cordinate = int((screen_height/2) - (500/2))
+        self.root.geometry(f"800x500+{x_cordinate}+{y_cordinate}")
+        self.root.title("Typing speed test.")
+        self.root.configure(bg=styling.label_bg)
 
-# ========== WIDGETS ==========
+        self.words = self.get_random_words()
+        Label(self.root, text=" ".join(self.words), **styling.label_configs).pack()
 
-# Root widget
-root = Tk()
-screen_width, screen_height = root.winfo_screenwidth(), root.winfo_screenheight()
-x_cordinate = int((screen_width/2) - (800/2))
-y_cordinate = int((screen_height/2) - (500/2))
-root.geometry(f"800x500+{x_cordinate}+{y_cordinate}")
-root.title("Typing speed test.")
-root.configure(bg=styling.label_bg)
+        self.timer_label = Label(self.root, text=self.start, **styling.timer_label_configs)
+        self.timer_label.pack(pady=2)
 
-label = Label(root, text=" ".join(words), **styling.label_configs).pack()
+        self.entry = Entry(self.root, **styling.entry_configs)
+        self.entry.pack()
+        self.entry.focus()
 
-timer_label = Label(root, text=start, **styling.timer_label_configs)
-timer_label.pack(pady=2)
+    def get_random_words(self):
+        with open('words.txt') as f:
+            list_of_words = f.read().split()
 
-entry = Entry(root, **styling.entry_configs)
-entry.pack()
-entry.focus()
+        return random.sample(list_of_words, k=total_words_to_appear)
 
-def display_score():
-    global correct_words_count
-    score = (correct_words_count / int(MainStart)) * 60
-    Label(root, text=f"You score is: {score} WPM",
-          **styling.score_configs).pack(pady=20)
-    print(f"Your score is: {score}")
-    timer_label.config(text="0")
+    def display_score(self):
+        score = (self.correct_words_count / int(MainStart)) * 60
+        Label(self.root, text=f"You score is: {score} WPM",
+              **styling.score_configs).pack(pady=20)
+        print(f"Your score is: {score}")
+        self.timer_label.config(text="0")
 
-# ========= CLOCK ==========
+    def start_timer(self):
+        if int(self.start) <= 1:
+            print("Timeout")
+            self.display_score()
+            return
 
-def timer():
-    global start
-    if int(start) <= 1:
-        print("Timeout")
-        display_score()
-        return
-    start = str(int(start)-1)
-    timer_label.config(text=start)
-    timer_label.after(1000, timer)
+        self.start = str(int(self.start)-1)
+        self.timer_label.config(text=self.start)
+        self.timer_label.after(1000, self.start_timer)
 
-timer()
+    def main(self, event):
+        if event.char == " ":
+            string = self.entry.get().strip()
+            if string == "x":
+                sys.exit()
 
-def main(event):
-    global start
-    global correct_words_count
-    if event.char == " ":
-        string = entry.get().strip()
-        if string == "x":
-            sys.exit()
+            if string in self.words:
+                self.words.remove(string)
+                self.correct_words_count += 1
 
-        if string in words:
-            words.remove(string)
-            correct_words_count += 1
+            self.entry.delete(0, END)
 
-        entry.delete(0, END)
-
-root.bind('<space>', main)
-
-root.mainloop()
+if __name__ == "__main__":
+    app = Ttt()
+    app.start_timer()
+    app.root.bind('<space>', app.main)
+    app.root.mainloop()
