@@ -9,11 +9,12 @@ with open('config.json') as config_file:
 
 max_length_of_a_word = data['max_length_of_a_word']
 total_words_to_appear = data['total_words_to_appear']
-MainStart = data['time_allowed']
+time_allowed = data['time_allowed']
 
 class Ttt:
+
     def __init__(self) -> None:
-        self.start = data['time_allowed']
+        self.start = time_allowed
         self.correct_words_count = 0
         self.root = Tk()
 
@@ -41,9 +42,8 @@ class Ttt:
         return random.sample(list_of_words, k=total_words_to_appear)
 
     def display_score(self):
-        score = (self.correct_words_count / int(MainStart)) * 60
-        Label(self.root, text=f"You score is: {score} WPM",
-              **styling.score_configs).pack(pady=20)
+        score = (self.correct_words_count / int(time_allowed)) * 60
+        Label(self.root, text=f"You score is: {score} WPM", **styling.score_configs).pack(pady=20)
         print(f"Your score is: {score}")
         self.timer_label.config(text="0")
 
@@ -53,8 +53,8 @@ class Ttt:
             self.display_score()
             return
 
-        self.start = str(int(self.start)-1)
-        self.timer_label.config(text=self.start)
+        self.start = int(self.start)-1
+        self.timer_label.config(text=str(self.start))
         self.timer_label.after(1000, self.start_timer)
 
     def main(self, event):
