@@ -17,7 +17,7 @@ python3 ttt.py
 
 ___
 ### Screenshot
-![Yeah I'm bad at typing.](https://i.imgur.com/z8FP7T9.png)
+![Yeah I'm bad at typing.](https://user-images.githubusercontent.com/77913442/188434143-4d4f7e48-a216-41f0-b3a4-bd96b4a7b416.png)
 
 ___
 ### Config file
