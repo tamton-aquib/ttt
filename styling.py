@@ -1,9 +1,9 @@
 # '#316879, #f47a60, #7fe7dc, #ced7d8'
 
-label_fg = '#000000'
-label_bg = '#316878'
-entry_fg = '#000000'
-entry_bg = '#7fe7dc'
+label_fg = '#a9987c'
+label_bg = '#282828'
+entry_fg = '#282828'
+entry_bg = '#7b6f62'
 
 label_configs = {
     "height": "8",

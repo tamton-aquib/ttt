@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from tkinter import Tk, Label, Entry, END
 import sys, random, json
+from dataclasses import dataclass
 
 import styling
 
@@ -11,13 +12,13 @@ max_length_of_a_word = data['max_length_of_a_word']
 total_words_to_appear = data['total_words_to_appear']
 time_allowed = data['time_allowed']
 
+@dataclass
 class Ttt:
+    root = Tk()
+    correct_words_count = 0
+    start = time_allowed
 
     def __init__(self) -> None:
-        self.start = time_allowed
-        self.correct_words_count = 0
-        self.root = Tk()
-
         screen_width, screen_height = self.root.winfo_screenwidth(), self.root.winfo_screenheight()
         x_cordinate = int((screen_width/2) - (800/2))
         y_cordinate = int((screen_height/2) - (500/2))
