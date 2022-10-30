@@ -1,7 +1,7 @@
 # '#316879, #f47a60, #7fe7dc, #ced7d8'
 
-label_fg = '#a9987c'
-label_bg = '#282828'
+label_fg = '#CFB997'
+label_bg = '#3C4048'
 entry_fg = '#282828'
 entry_bg = '#7b6f62'
 
